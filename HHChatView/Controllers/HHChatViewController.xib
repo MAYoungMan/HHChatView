@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HHChatViewController">
+            <connections>
+                <outlet property="tableView" destination="oDF-Sd-Tn1" id="QvW-Ag-Pvx"/>
+                <outlet property="textField" destination="Uti-SB-EKh" id="900-5L-4D3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oDF-Sd-Tn1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIe-0r-nFH" userLabel="工具条">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_bottom_bg" translatesAutoresizingMaskIntoConstraints="NO" id="5Cs-FM-dKv" userLabel="工具条背景">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb5-0u-pnk" userLabel="声音">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="6xQ-7s-i0p"/>
+                                <constraint firstAttribute="height" constant="44" id="Rh6-ix-uIA"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="chat_bottom_voice_nor"/>
+                            <state key="highlighted" backgroundImage="chat_bottom_voice_press"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNr-KD-yWP" userLabel="加号按钮">
+                            <rect key="frame" x="331" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="0t9-5r-Uns"/>
+                                <constraint firstAttribute="height" constant="44" id="wWW-0b-XO3"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="chat_bottom_up_nor"/>
+                            <state key="highlighted" backgroundImage="chat_bottom_up_press"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7q-yy-yXQ" userLabel="表情">
+                            <rect key="frame" x="277" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="PkG-as-Cx3"/>
+                                <constraint firstAttribute="height" constant="44" id="etq-tu-Ea5"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="chat_bottom_smile_nor"/>
+                            <state key="highlighted" backgroundImage="chat_bottom_smile_press"/>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="chat_bottom_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-SB-EKh" userLabel="输入框">
+                            <rect key="frame" x="54" y="5" width="213" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="d7q-yy-yXQ" secondAttribute="bottom" id="0W6-tF-4U0"/>
+                        <constraint firstItem="hb5-0u-pnk" firstAttribute="leading" secondItem="PIe-0r-nFH" secondAttribute="leading" id="Ezc-6f-G5J"/>
+                        <constraint firstAttribute="trailing" secondItem="5Cs-FM-dKv" secondAttribute="trailing" id="FAl-bE-rTj"/>
+                        <constraint firstItem="Uti-SB-EKh" firstAttribute="leading" secondItem="hb5-0u-pnk" secondAttribute="trailing" constant="10" id="MX9-IU-beI"/>
+                        <constraint firstItem="SNr-KD-yWP" firstAttribute="leading" secondItem="d7q-yy-yXQ" secondAttribute="trailing" constant="10" id="UsH-Yo-txB"/>
+                        <constraint firstAttribute="bottom" secondItem="hb5-0u-pnk" secondAttribute="bottom" id="WjF-lS-nFi"/>
+                        <constraint firstItem="5Cs-FM-dKv" firstAttribute="top" secondItem="Yvq-sl-RDZ" secondAttribute="top" id="YuQ-j2-zvT"/>
+                        <constraint firstItem="5Cs-FM-dKv" firstAttribute="leading" secondItem="PIe-0r-nFH" secondAttribute="leading" id="bfL-NN-IcU"/>
+                        <constraint firstAttribute="trailing" secondItem="SNr-KD-yWP" secondAttribute="trailing" id="biM-5p-0kF"/>
+                        <constraint firstAttribute="bottom" secondItem="SNr-KD-yWP" secondAttribute="bottom" id="d0b-7A-sDa"/>
+                        <constraint firstAttribute="height" constant="44" id="d20-tF-CX0"/>
+                        <constraint firstItem="Yvq-sl-RDZ" firstAttribute="bottom" secondItem="5Cs-FM-dKv" secondAttribute="bottom" id="fyc-D1-0ud"/>
+                        <constraint firstItem="5Cs-FM-dKv" firstAttribute="top" secondItem="Yvq-sl-RDZ" secondAttribute="top" id="gop-gB-mQL"/>
+                        <constraint firstItem="Uti-SB-EKh" firstAttribute="top" secondItem="Yvq-sl-RDZ" secondAttribute="top" constant="5" id="iEA-9q-vAs"/>
+                        <constraint firstAttribute="bottom" secondItem="Uti-SB-EKh" secondAttribute="bottom" constant="5" id="sgi-JV-ebd"/>
+                        <constraint firstItem="d7q-yy-yXQ" firstAttribute="leading" secondItem="Uti-SB-EKh" secondAttribute="trailing" constant="10" id="zRZ-Uf-RjN"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Yvq-sl-RDZ"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oDF-Sd-Tn1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PMd-NM-Uj9"/>
+                <constraint firstItem="oDF-Sd-Tn1" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Vjl-Dw-3h1"/>
+                <constraint firstItem="PIe-0r-nFH" firstAttribute="top" secondItem="oDF-Sd-Tn1" secondAttribute="bottom" id="hDq-0m-PHG"/>
+                <constraint firstItem="oDF-Sd-Tn1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hRp-x1-ehE"/>
+                <constraint firstAttribute="trailing" secondItem="PIe-0r-nFH" secondAttribute="trailing" id="jaw-TW-1Ou"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="PIe-0r-nFH" secondAttribute="bottom" id="k9e-gF-Mh0"/>
+                <constraint firstItem="PIe-0r-nFH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="utc-Ez-Rej"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chat_bottom_bg" width="10" height="42"/>
+        <image name="chat_bottom_smile_nor" width="34" height="34"/>
+        <image name="chat_bottom_smile_press" width="34" height="34"/>
+        <image name="chat_bottom_textfield" width="9" height="31"/>
+        <image name="chat_bottom_up_nor" width="34" height="34"/>
+        <image name="chat_bottom_up_press" width="34" height="34"/>
+        <image name="chat_bottom_voice_nor" width="34" height="34"/>
+        <image name="chat_bottom_voice_press" width="34" height="34"/>
+    </resources>
+</document>
