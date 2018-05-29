@@ -34,6 +34,28 @@
     
     self.textField.delegate = self;
     
+    //设置文本框
+    [self settingTextField];
+    //接收通知
+    [self addNotification];
+    
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)settingTextField
+{
+    //这个很苦逼,,它在iOS中就是用来占位的!!!
+    UIView * leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 15, 2)];
+    leftView.backgroundColor = [UIColor clearColor];
+    self.textField.leftViewMode = UITextFieldViewModeAlways;
+    self.textField.leftView = leftView;
+    
+    //设置文本输入框的代理
+    self.textField.delegate = self;
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -119,6 +141,25 @@
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     return YES;
+}
+
+#pragma mark - <Notification>
+-(void)addNotification
+{
+    //注册通知 UIKeyboardWillChangeFrameNotification 键盘frame改变就通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotifacation:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+
+-(void)keyboardNotifacation:(NSNotification *)not
+{
+    //UIKeyboardFrameEndUserInfoKey
+    //取出键盘弹出或者退出的frame
+    CGRect frame = [not.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat margin = frame.origin.y - self.view.frame.size.height;
+    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.messages.count-1 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexpath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    self.view.transform = CGAffineTransformMakeTranslation(0, margin);
 }
 
 #pragma mark - <Lazy Load>
